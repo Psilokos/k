@@ -1,0 +1,14 @@
+*.a
+*.d
+*.o
+*.rom
+*.iso
+iso
+k/k
+roms/chichehunter/hunter
+roms/chichepong/pong
+roms/chichevaders/vaders
+roms/perrodlauncher/perrodlauncher
+roms/skate/skate
+roms/yakanoid/yakanoid
+tools/mkkfs/mkkfs
