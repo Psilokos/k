@@ -25,11 +25,14 @@
 
 #include "multiboot.h"
 
+void init(void);
 
 void k_main(unsigned long magic, multiboot_info_t *info)
 {
 	(void)magic;
 	(void)info;
+
+        init();
 
 	char star[4] = "|/-\\";
 	char *fb = (void *)0xb8000;
