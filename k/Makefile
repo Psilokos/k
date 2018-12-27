@@ -27,8 +27,12 @@ TARGET	= k
 OBJS	= \
 	  crt0.o \
 	  init.o \
+	  irq_handlers.o \
+	  isr.o	\
 	  k.o \
 	  libvga.o \
+	  ps2.o \
+	  timer.o \
 
 
 DEPS = $(OBJS:.o=.d)
@@ -40,6 +44,9 @@ $(TARGET): CFLAGS += $(K_EXTRA_CFLAGS)
 $(TARGET): LDFLAGS += -Wl,-Tk.lds
 $(TARGET): LDLIBS = -L../libs/libc -lc
 $(TARGET): $(OBJS)
+
+%.o: %.asm
+	nasm -f elf32 $< -o $@
 
 clean:
 	$(RM) $(OBJS) $(DEPS) $(TARGET)
